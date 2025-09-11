@@ -1,27 +1,188 @@
-*{
-    padding: 0;
+body {
+    font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    box-sizing: border-box;
-
-}
-
-body{
-    background-color: #E6E6FA;
-
-}
-
-.section-geral{
+    background-color: #f4f7f6;
     display: flex;
-    background-color: bisque;
-    justify-content: space-between;
-    padding: 15px;
-    margin-top: 15rem;
-    max-height: 100vh;
-    
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
-.cabecalho{
+.container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 900px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+header {
     text-align: center;
-    background-color: coral;
-    box-shadow: 10px;
+    margin-bottom: 30px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+header .logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+header h1 {
+    font-size: 2em;
+    color: #333;
+    margin: 0;
+}
+
+header p {
+    color: #666;
+    font-size: 1.1em;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.tab-button {
+    background-color: rgb(255, 11, 180);
+    border: none;
+    padding: 12px 25px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+.tab-button.active {
+    background-color: rgb(255, 11, 180);
+    color: #ffffff;
+}
+
+.tab-button:hover:not(.active) {
+    background-color: rgb(255, 105, 180);
+}
+
+.tab-pane {
+    display:none ;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+#add-item-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20x;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1/ -1;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input [type="text"],
+.form-group input [type="number"],
+.form-group input [type="date"],
+.form-group select,
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add-item-button {
+    grid-column: 1 / -1;
+    background-color: rgb(255, 11, 180);
+    color: #ffffff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.add-item-button:hover {
+    background-color: rgb(255, 105, 180);
+}
+
+.inventory-report {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.inventory-report table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.inventory-report th,
+.inventory-report td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.inventory-report th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+}
+
+.inventory-report tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.inventory-report tr:hover {
+    background-color: #f1f1f1;
+}
+@media (max-width: 768px) {
+    #add-item-form {
+        grid-template-columns: 1fr;
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tab-button {
+        margin-bottom: 10px;
+    }
 }
