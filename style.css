@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     background-color: #f4f7f6;
     display: flex;
@@ -58,7 +58,7 @@ header p {
 }
 
 .tab-button {
-    background-color: rgb(255, 11, 180);
+    background-color: #e0e0e0;
     border: none;
     padding: 12px 25px;
     font-size: 1em;
@@ -69,26 +69,34 @@ header p {
 }
 
 .tab-button.active {
-    background-color: rgb(255, 11, 180);
+    background-color: rgb(255, 12, 180);
     color: #ffffff;
 }
 
 .tab-button:hover:not(.active) {
-    background-color: rgb(255, 105, 180);
+    background-color: #d0d0d0;
 }
 
 .tab-pane {
-    display:none ;
+    display: none;
 }
 
 .tab-pane.active {
     display: block;
 }
 
+.tab-pane h2 {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* formulariozinho  */
 #add-item-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20x;
+    gap: 20px;
     max-width: 700px;
     margin: 0 auto;
     padding: 20px;
@@ -103,7 +111,7 @@ header p {
 }
 
 .form-group.full-width {
-    grid-column: 1/ -1;
+    grid-column: 1 / -1;
 }
 
 .form-group label {
@@ -112,9 +120,9 @@ header p {
     color: #555;
 }
 
-.form-group input [type="text"],
-.form-group input [type="number"],
-.form-group input [type="date"],
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
 .form-group select,
 .form-group textarea {
     padding: 10px;
@@ -125,9 +133,19 @@ header p {
     box-sizing: border-box;
 }
 
+.form-group input[type="text"]::placeholder,
+.form-group textarea::placeholder {
+    color: #aaa;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
 .add-item-button {
     grid-column: 1 / -1;
-    background-color: rgb(255, 11, 180);
+    background-color: rgb(255, 12, 180);
     color: #ffffff;
     border: none;
     padding: 15px 30px;
@@ -142,6 +160,7 @@ header p {
     background-color: rgb(255, 105, 180);
 }
 
+/* Tabelinha */
 .inventory-report {
     overflow-x: auto;
     margin-top: 20px;
@@ -173,6 +192,23 @@ header p {
 .inventory-report tr:hover {
     background-color: #f1f1f1;
 }
+
+.inventory-report .actions button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.inventory-report .actions button:hover {
+    background-color: #c82333;
+}
+
+/* Responsividade né pai */
 @media (max-width: 768px) {
     #add-item-form {
         grid-template-columns: 1fr;
@@ -186,3 +222,4 @@ header p {
         margin-bottom: 10px;
     }
 }
+
