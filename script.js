@@ -113,6 +113,22 @@ class InventoryManager {
             this.renderInventory(); // Atualiza a tabela
         }
     }
+    getStatistics() {
+        // Calcula estatísticas do inventário
+        const totalProducts = this.products.length;
+        const totalQuantity = this.products.reduce((sum, product) => sum + product.quantity, 0);
+        const totalInvestment = this.products.reduce((sum, product) => sum + (product.purchaseValue * product.quantity), 0);
+        const totalValue = this.products.reduce((sum, product) => sum + (product.saleValue * product.quantity), 0);
+        const totalProfit = totalValue - totalInvestment;
+
+        return {
+            totalProducts,
+            totalQuantity,
+            totalInvestment,
+            totalValue,
+            totalProfit
+        };
+    }
 
     renderInventory() {
         const tbody = document.getElementById('inventory-table-body'); // Corpo da tabela
@@ -139,14 +155,11 @@ class InventoryManager {
                 : 'Não informado';
 
             // Faz o cálculo com base na quantidade
-            const totalInvestment = this.products.reduce((sum, product) => sum + (product.purchaseValue * product.quantity), 0);
-            const totalValue = this.products.reduce((sum, product) => sum + (product.saleValue * product.quantity), 0);
-            const totalProfit = totalValue - totalInvestment;
-
+            const item = this.getStatistics();
             // Formata valores em reais
-            const purchaseFormatted = `R$ ${totalInvestment.toFixed(2).replace('.', ',')}`;
-            const saleFormatted = `R$ ${totalValue.toFixed(2).replace('.', ',')}`;
-            const profitFormatted = `R$ ${totalProfit.toFixed(2).replace('.', ',')}`;
+            const purchaseFormatted = `R$ ${item.totalInvestment.toFixed(2).replace('.', ',')}`;
+            const saleFormatted = `R$ ${item.totalValue.toFixed(2).replace('.', ',')}`;
+            const profitFormatted = `R$ ${item.totalProfit.toFixed(2).replace('.', ',')}`;
             const profitClass = product.profit >= 0 ? 'profit-positive' : 'profit-negative';
 
             // Preenche linha com dados e botões de ação
@@ -221,22 +234,7 @@ class InventoryManager {
         reader.readAsText(file); // Lê arquivo como texto
     }
 
-    getStatistics() {
-        // Calcula estatísticas do inventário
-        const totalProducts = this.products.length;
-        const totalQuantity = this.products.reduce((sum, product) => sum + product.quantity, 0);
-        const totalInvestment = this.products.reduce((sum, product) => sum + (product.purchaseValue * product.quantity), 0);
-        const totalValue = this.products.reduce((sum, product) => sum + (product.saleValue * product.quantity), 0);
-        const totalProfit = totalValue - totalInvestment;
 
-        return {
-            totalProducts,
-            totalQuantity,
-            totalInvestment,
-            totalValue,
-            totalProfit
-        };
-    }
 }
 
 // Variável global que guarda a instância do inventário
