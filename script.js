@@ -155,12 +155,15 @@ class InventoryManager {
                 : 'Não informado';
 
             // Faz o cálculo com base na quantidade
-            const item = this.getStatistics();
+            const purchsaeValue = product.purchaseValue * product.quantity;
+            const saleValue = product.saleValue * product.quantity;
+            const profit = saleValue - purchsaeValue;
+
             // Formata valores em reais
-            const purchaseFormatted = `R$ ${item.totalInvestment.toFixed(2).replace('.', ',')}`;
-            const saleFormatted = `R$ ${item.totalValue.toFixed(2).replace('.', ',')}`;
-            const profitFormatted = `R$ ${item.totalProfit.toFixed(2).replace('.', ',')}`;
-            const profitClass = product.profit >= 0 ? 'profit-positive' : 'profit-negative';
+            const purchaseFormatted = `R$ ${purchsaeValue.toFixed(2).replace('.', ',')}`;
+            const saleFormatted = `R$ ${saleValue.toFixed(2).replace('.', ',')}`;
+            const profitFormatted = `R$ ${profit.toFixed(2).replace('.', ',')}`;
+            const profitClass = profit >= 0 ? 'profit-positive' : 'profit-negative';
 
             // Preenche linha com dados e botões de ação
             row.innerHTML = `

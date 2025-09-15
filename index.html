@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de Estoque</title>
+    <link rel="icon" type="imagem/png" href="img/estoque-pronto.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,14 +30,14 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Código Interno</th>
-                                <th>Descrição</th>
-                                <th>Quantidade</th>
-                                <th>Validade</th>
-                                <th>Valor de Compra</th>
-                                <th>Valor de Venda</th>
-                                <th>Lucro</th>
-                                <th>Ações</th>
+                                <th><img src="img/adicionar-produto.png"><span>Código Interno</span></th>
+                                <th><img src="/img/novo-produto.png"><span>Produto</span></th>
+                                <th><img src="img/produto.png"><span>Quantidade</span></th>
+                                <th><img src="img/calendario.png"><span>Validade</span></th>
+                                <th><img src="img/compra.png"><span>Valor de Compra</span></th>
+                                <th><img src="img/venda.png"><span>Valor de Venda</span></th>
+                                <th><img src="img/lucros.png"><span>Lucro</span></th>
+                                <th><img src="img/remover.png"><span>Ações</span></th>
                             </tr>
                         </thead>
                         <tbody id="inventory-table-body">
@@ -50,7 +51,7 @@
                 <form id="add-item-form">
                     <div class="form-group">
                         <label for="product-name">Nome do Produto *</label>
-                        <input type="text" id="product-name" placeholder="Ex: 1kg de Metanfetamina" required>
+                        <input type="text" id="product-name" placeholder="Ex: 1kg de Metanfetamina >.<" required>
                     </div>
                     <div class="form-group">
                         <label for="category">Categoria *</label>
@@ -64,15 +65,15 @@
                     </div>
                     <div class="form-group">
                         <label for="quantity">Quantidade *</label>
-                        <input type="number" id="quantity" value="0" min="0" required>
+                        <input type="number" id="quantity" placeholder="0" min="0" required>
                     </div>
                     <div class="form-group">
                         <label for="purchase-value">Valor de Compra (R$)*</label>
-                        <input type="number" id="purchase-value" value="0" min="0" step="0.01" required>
+                        <input type="number" id="purchase-value" placeholder="0" min="0" step="0.01" required>
                     </div>
                     <div class="form-group">
                         <label for="sale-value">Valor de Venda (R$)*</label>
-                        <input type="number" id="sale-value" value="0" min="0" step="0.01" required>
+                        <input type="number" id="sale-value" placeholder="0" min="0" step="0.01" required>
                     </div>
                     <div class="form-group">
                         <label for="validity-date">Data de Validade</label>
@@ -80,7 +81,7 @@
                     </div>
                     <div class="form-group full-width">
                         <label for="description">Descrição</label>
-                        <textarea id="description" placeholder="Descrição adicional do produto..."></textarea>
+                        <textarea id="description" placeholder="Descriçãozinha >.<"></textarea>
                     </div>
                     <button type="submit" class="add-item-button">+ Adicionar Item</button>
                 </form>
