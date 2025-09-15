@@ -135,7 +135,7 @@ class InventoryManager {
         tbody.innerHTML = ''; // Limpa antes de renderizar
 
         if (this.products.length === 0) {
-            // Caso não haja produtos
+            // Caso não haja produtos - aqui que fica a aba de descrição
             tbody.innerHTML = `
                 <tr>
                     <td colspan="8" style="text-align: center; padding: 20px; color: #666;">
@@ -172,7 +172,7 @@ class InventoryManager {
                 <td>
                     <div style="display: flex; align-items: center; gap: 5px;">
                         <button onclick="inventory.updateQuantity(${product.id}, ${product.quantity - 1})" 
-                                style="background: #dc3545; color: white; border: none; border-radius: 3px; width: 25px; height: 25px; cursor: pointer;">-</button>
+                                style="background: rgb(255, 12, 180); color: white; border: none; border-radius: 3px; width: 25px; height: 25px; cursor: pointer;">-</button>
                         <span style="min-width: 30px; text-align: center;">${product.quantity}</span>
                         <button onclick="inventory.updateQuantity(${product.id}, ${product.quantity + 1})" 
                                 style="background: #28a745; color: white; border: none; border-radius: 3px; width: 25px; height: 25px; cursor: pointer;">+</button>
