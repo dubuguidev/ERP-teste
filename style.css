@@ -1,7 +1,7 @@
 body {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
-    background-color: rgb(181, 101, 29);
+    background-color: rgb(11, 13, 128);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@ p {
 }
 
 .container {
-    background-color: rgb(255, 215, 180);
+    background-color: rgb(255, 255, 255);
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -95,6 +95,7 @@ th span {
     height: auto;
     max-width: 700px; /* Garante que nunca exceda 250px de largura */
     max-height: 300px;
+    border-radius: 10px;
 }
 
 .tabs {
@@ -106,7 +107,8 @@ th span {
 }
 
 .tab-button {
-    background-color: goldenrod;
+    background-color: blue;
+    color: #f1f1f1;
     border: none;
     padding: 12px 25px;
     font-size: 1em;
@@ -117,12 +119,12 @@ th span {
 }
 
 .tab-button.active {
-    background-color: goldenrod;
+    background-color: blue;
     color: #ffffff;
 }
 
 .tab-button:hover:not(.active) {
-    background-color: rgb(181, 101, 29);
+    background-color: rgb(68, 169, 236);
 }
 
 .tab-pane {
@@ -136,7 +138,7 @@ th span {
 
 .tab-pane h2 {
     font-size: 1.8em;
-    color: #333;
+    color: blue;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -149,9 +151,9 @@ th span {
     max-width: 700px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid gold;
+    border: 1px solid white;
     border-radius: 8px;
-    background-color: rgb(181, 101, 29);
+    background-color: rgb(36, 172, 172);
 }
 
 .form-group {
@@ -168,8 +170,7 @@ th span {
 .form-group label {
     margin-bottom: 8px;
     font-weight: bold;
-    color: gold;
-    text-shadow: 2px 2px 0 #070707;
+    color: rgb(255, 255, 255);
 }
 
 .form-group input[type="text"],
@@ -197,7 +198,7 @@ th span {
 
 .add-item-button {
     grid-column: 1 / -1;
-    background-color: goldenrod;
+    background-color: cyan;
     color: #ffffff;
     border: none;
     padding: 15px 30px;
@@ -209,7 +210,7 @@ th span {
 }
 
 .add-item-button:hover {
-    background-color: gold;
+    background-color: blue;
 }
 
 /* Tabelinha */
