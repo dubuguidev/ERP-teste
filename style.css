@@ -88,9 +88,13 @@ th span {
 }
 
 .logo {
-    height: 150px;
-    width: auto;
-    
+    display: block;
+    margin-left: auto;
+    margin-right: 55%;
+    width: 100%;
+    height: auto;
+    max-width: 700px; /* Garante que nunca exceda 250px de largura */
+    max-height: 300px;
 }
 
 .tabs {
