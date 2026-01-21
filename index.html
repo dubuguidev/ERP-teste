@@ -11,10 +11,11 @@
 <body>
     <div class="container">
         <header>
-            <div class="logo">
+            <!-- <div class="logo">
                 <img src="img/estocai3.gif" alt="Logo" class="logo">
-            </div>
+            </div> -->
             <!-- <h1><img src="img/Estocaí.gif" alt="logo"></h1> -->
+            <h1>Controle de Estoque ITA</h1>
             <p>Gestão de estoque descomplicada: controle entradas, saídas e prateleiras com poucos cliques, do jeitinho brasileiro.</p>
         </header>
 
@@ -33,12 +34,12 @@
                             <tr>
                                 <th><img src="img/adicionar-produto.png"><span>Código Interno</span></th>
                                 <th><img src="/img/novo-produto.png"><span>Produto</span></th>
+                                <th><img src="img/calendario.png"><span>Data de Adição</span></th>
                                 <th><img src="img/produto.png"><span>Quantidade</span></th>
-                                <th><img src="img/calendario.png"><span>Validade</span></th>
                                 <th><img src="img/compra.png"><span>Custo</span></th>
                                 <th><img src="img/venda.png"><span>Valor de Venda</span></th>
                                 <th><img src="img/lucros.png"><span>Lucro</span></th>
-                                <th><img src="img/remover.png"><span>Ações</span></th>
+                                <th><img src="img/remover.png"><span>Ação</span></th>
                             </tr>
                         </thead>
                         <tbody id="inventory-table-body">
@@ -52,15 +53,15 @@
                 <form id="add-item-form">
                     <div class="form-group">
                         <label for="product-name">Nome do Produto *</label>
-                        <input type="text" id="product-name" placeholder="Ex: 1kg de Metanfetamina >.<" required>
+                        <input type="text" id="product-name" placeholder="Ex: 1kg de Metanfetamina" required>
                     </div>
                     <div class="form-group">
                         <label for="category">Categoria *</label>
                         <select id="category" required>
-                            <option value="">Selecione uma categoria</option>
-                            <option value="eletronicos">Medicamentos</option>
-                            <option value="alimentos">Alimentos</option>
-                            <option value="vestuario">Bebidas</option>
+                            <option value="">Selecione tipo do iPhone</option>
+                            <option value="lacrado">Lacrado</option>
+                            <option value="seminovo">Semi-Novo</option>
+                            <!-- <option value="vestuario">Bebidas</option> -->
                             <option value="outros">Outros</option>
                         </select>
                     </div>
@@ -77,7 +78,7 @@
                         <input type="number" id="sale-value" placeholder="0" min="0" step="0.01" required>
                     </div>
                     <div class="form-group">
-                        <label for="validity-date">Data de Validade</label>
+                        <label for="validity-date">Data de Adição</label>
                         <input type="date" id="validity-date">
                     </div>
                     <div class="form-group full-width">

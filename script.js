@@ -54,7 +54,7 @@ class InventoryManager {
 
     addProduct() {
         const form = document.getElementById('add-item-form'); // Referência ao formulário
-        const formData = new FormData(form); // Pega os dados do formulário (não usado diretamente aqui)
+        // const formData = new FormData(form); // Pega os dados do formulário (não usado diretamente aqui)
 
         // Variáveis que armazenam os valores dos inputs
         const productName = document.getElementById('product-name').value;
@@ -62,7 +62,7 @@ class InventoryManager {
         const quantity = parseInt(document.getElementById('quantity').value);
         const purchaseValue = parseFloat(document.getElementById('purchase-value').value);
         const saleValue = parseFloat(document.getElementById('sale-value').value);
-        const validityDate = document.getElementById('validity-date').value;
+        // const validityDate = document.getElementById('validity-date').value;
         const description = document.getElementById('description').value;
 
         // Validação dos dados

@@ -1,7 +1,25 @@
+/* --- Importando a Fonte (caso não carregue pelo HTML) --- */
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap');
+
+/* --- Variáveis de Cores (Paleta Neon) --- */
+:root {
+    --bg-body: #050505;          /* Preto Profundo */
+    --bg-container: #141414;     /* Cinza muito escuro */
+    --bg-card: #1f1f1f;          /* Cinza para inputs/tabela */
+    --neon-green: #39ff14;       /* Verde Neon */
+    --neon-red: #ff3131;         /* Vermelho Neon */
+    --text-main: #ffffff;        /* Branco */
+    --text-muted: #b3b3b3;       /* Cinza claro */
+    --border-color: #333333;     /* Bordas sutis */
+    --font-main: 'Playfair Display', serif; /* Fonte Original */
+}
+
+/* --- Reset e Estilos Gerais --- */
 body {
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
-    background-color: rgb(11, 13, 128);
+    background-color: var(--bg-body);
+    font-family: var(--font-main); /* Fonte restaurada */
+    color: var(--text-main);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,185 +28,154 @@ body {
     box-sizing: border-box;
 }
 
-p {
-    background-color: white;
-    color: #070707;
-    padding: 10px;
+h1, h2, h3, p, span, button, input, select, textarea {
+    font-family: var(--font-main); /* Garante a fonte em tudo */
 }
 
+/* --- Container Principal --- */
 .container {
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: var(--bg-container);
+    border: 1px solid #333;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.05); /* Sombra verde bem suave */
     width: 100%;
-    max-width: 900px;
-    padding: 30px;
+    max-width: 1000px;
+    padding: 40px;
     box-sizing: border-box;
 }
 
+/* --- Header --- */
 header {
-    margin-bottom: 30px;
-}
-
-header .logo {
-    display: flex;
-    align-items:center;
-    justify-content:center;
-    margin-bottom: 15px;
-    gap: 30px;
-}
-
-header .logo img {
-    height: 450px;
-    width: auto;
-    margin-right: 0;
-}
-
-/* header h1 {
-    font-family: 'Playfair Display';
-    font-size: 10px;
     text-align: center;
-    width: 10px;
-    margin: 10px;
-    gap: 10px;
-    padding: 10px;
-} */
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 20px;
+}
+
+header h1 {
+    color: var(--neon-green);
+    font-size: 2.2rem;
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.3);
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 header p {
-    font-family: 'Playfair Display';
-    color: #666;
-    font-size: 1em;
-    text-align: center;
-    background-color: white;
-    color: #070707;
-    padding: 10px;
-    border-radius: 5px;
+    color: var(--text-muted);
+    font-size: 1rem;
+    background: transparent;
+    padding: 0;
+    margin-top: 5px;
+    font-style: italic;
 }
 
-thead {
-    text-align: center;
-    justify-content: center;
-}
-
-th {
-    text-align: center;
-    vertical-align: middle;
-    padding: 10px;
-}
-
-th img{
-    width: 30px;
-    display: block;
-    margin: 0 auto 5px auto;
-}
-
-th span {
-    display: block;
-    text-align: center;
-}
-
-.logo {
-    display: block;
-    margin-left: auto;
-    margin-right: 55%;
-    width: 100%;
-    height: auto;
-    max-width: 700px; /* Garante que nunca exceda 250px de largura */
-    max-height: 300px;
-    border-radius: 10px;
-}
-
+/* --- Navegação (Abas) --- */
 .tabs {
     display: flex;
     justify-content: center;
+    gap: 15px;
     margin-bottom: 30px;
-    border-bottom: 1px solid gray;
-    padding-bottom: 10px;
 }
 
 .tab-button {
-    background-color: blue;
-    color: #f1f1f1;
-    border: none;
-    padding: 12px 25px;
-    font-size: 1em;
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    padding: 10px 25px;
+    font-size: 1.1em;
     cursor: pointer;
-    border-radius: 5px;
-    margin: 0 5px;
-    transition: background-color 0.3s ease;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+    color: var(--neon-green);
+    border-color: var(--neon-green);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
 }
 
 .tab-button.active {
-    background-color: blue;
-    color: #ffffff;
+    background-color: var(--neon-green);
+    color: #000;
+    border-color: var(--neon-green);
+    box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+    font-weight: bold;
 }
 
-.tab-button:hover:not(.active) {
-    background-color: rgb(68, 169, 236);
-}
-
+/* --- Conteúdo das Abas --- */
 .tab-pane {
-    font-family: 'Playfair Display';
     display: none;
+    animation: fadeIn 0.4s ease-in-out;
 }
 
 .tab-pane.active {
     display: block;
 }
 
-.tab-pane h2 {
-    font-size: 1.8em;
-    color: blue;
-    margin-bottom: 20px;
-    text-align: center;
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* formulariozinho  */
+.tab-pane h2 {
+    color: var(--text-main);
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 2px solid var(--neon-green);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+/* --- Formulário --- */
 #add-item-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    max-width: 700px;
+    max-width: 100%;
     margin: 0 auto;
-    padding: 20px;
-    border: 1px solid white;
-    border-radius: 8px;
-    background-color: rgb(36, 172, 172);
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background-color: var(--bg-card);
 }
 
 .form-group {
-    font-family: 'Playfair Display';
     display: flex;
     flex-direction: column;
 }
 
 .form-group.full-width {
-    font-family: 'Playfair Display';
     grid-column: 1 / -1;
 }
 
 .form-group label {
     margin-bottom: 8px;
+    font-size: 1rem;
+    color: var(--neon-green);
     font-weight: bold;
-    color: rgb(255, 255, 255);
 }
 
-.form-group input[type="text"],
-.form-group input[type="number"],
-.form-group input[type="date"],
+.form-group input,
 .form-group select,
 .form-group textarea {
-    padding: 10px;
-    border: 1px solid rgb(0, 0, 0);
-    border-radius: 5px;
-    font-size: 1em;
-    width: 100%;
-    box-sizing: border-box;
+    background-color: #121212;
+    border: 1px solid var(--border-color);
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
 }
 
-.form-group input[type="text"]::placeholder,
-.form-group textarea::placeholder {
-    color: #aaa;
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--neon-green);
+    box-shadow: 0 0 8px rgba(57, 255, 20, 0.2);
 }
 
 .form-group textarea {
@@ -196,83 +183,173 @@ th span {
     min-height: 80px;
 }
 
+/* Botão Adicionar (Verde Neon) */
 .add-item-button {
     grid-column: 1 / -1;
-    background-color: cyan;
-    color: #ffffff;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.1em;
+    background-color: transparent;
+    color: var(--neon-green);
+    border: 2px solid var(--neon-green);
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-top: 10px;
 }
 
 .add-item-button:hover {
-    background-color: blue;
+    background-color: var(--neon-green);
+    color: #000;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.5);
 }
 
-/* Tabelinha */
+/* --- Tabela de Inventário --- */
 .inventory-report {
     overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
     margin-top: 20px;
 }
 
 .inventory-report table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    background-color: var(--bg-card);
 }
 
-.inventory-report th,
-.inventory-report td {
-    border: 1px solid #ddd;
-    padding: 12px;
+/* Cabeçalho da Tabela - Ajuste dos Ícones */
+.inventory-report th {
+    background-color: #000;
+    color: var(--neon-green);
+    padding: 15px;
+    font-size: 0.95rem;
+    border-bottom: 2px solid var(--border-color);
+    vertical-align: bottom; /* Alinha o conteúdo na base */
     text-align: center;
 }
 
-.inventory-report th {
-    background-color: rgb(255, 255, 255);
-    font-weight: bold;
-    color: #333;
+.inventory-report th img {
+    display: block; /* Garante que a imagem fique em linha própria */
+    margin: 0 auto 8px auto; /* Centraliza a imagem e dá espaço embaixo */
+    filter: invert(1); /* Inverte a cor para ficar branco no fundo preto */
+    width: 28px;
+    opacity: 0.9;
 }
 
-.inventory-report tr:nth-child(even) {
-    background-color: #f9f9f9;
+.inventory-report th span {
+    display: block; /* Garante que o texto fique em linha própria abaixo da imagem */
+}
+
+/* Corpo da Tabela */
+.inventory-report td {
+    padding: 12px;
+    border-bottom: 1px solid #2a2a2a;
+    color: var(--text-main);
+    text-align: center;
+    vertical-align: middle;
 }
 
 .inventory-report tr:hover {
-    background-color: #f1f1f1;
+    background-color: #2a2a2a;
 }
 
+/* --- Botões de Quantidade (+ e -) --- */
+/* Sobrescrevemos os estilos inline do JS para manter o tema */
+td div button {
+    background-color: transparent !important; /* Remove fundo sólido feio */
+    border-width: 1px !important;
+    border-style: solid !important;
+    width: 28px !important;
+    height: 28px !important;
+    border-radius: 4px !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 0;
+    cursor: pointer;
+    transition: 0.2s;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Botão Menos (-) Vermelho */
+td div button:first-child {
+    border-color: var(--neon-red) !important;
+    color: var(--neon-red) !important;
+}
+td div button:first-child:hover {
+    background-color: var(--neon-red) !important;
+    color: white !important;
+    box-shadow: 0 0 10px var(--neon-red);
+}
+
+/* Botão Mais (+) Verde */
+td div button:last-child {
+    border-color: var(--neon-green) !important;
+    color: var(--neon-green) !important;
+}
+td div button:last-child:hover {
+    background-color: var(--neon-green) !important;
+    color: #000 !important;
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+/* Número da quantidade entre os botões */
+td div span {
+    font-size: 1.1rem;
+    font-weight: bold;
+    min-width: 30px;
+    display: inline-block;
+}
+
+/* Botão Remover da Tabela */
 .inventory-report .actions button {
-    background-color:rgb(255, 12, 12);
-    color: white;
-    border: none;
-    padding: 8px 12px;
+    background-color: transparent;
+    color: var(--neon-red);
+    border: 1px solid var(--neon-red);
+    padding: 8px 15px;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
+    transition: 0.3s;
 }
 
 .inventory-report .actions button:hover {
-    background-color: rgb(223, 68, 68);
+    background-color: var(--neon-red);
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 49, 49, 0.4);
 }
 
-/* Responsividade né pai */
+/* Lucros - Força cores Neon */
+.profit-positive {
+    color: var(--neon-green) !important;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(57, 255, 20, 0.2);
+}
+
+.profit-negative {
+    color: var(--neon-red) !important;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 49, 49, 0.2);
+}
+
+/* --- Responsividade --- */
 @media (max-width: 768px) {
-    #add-item-form {
-        grid-template-columns: 1fr;
-    }
+    .container { padding: 15px; }
+    
+    #add-item-form { grid-template-columns: 1fr; }
 
-    .tabs {
-        flex-direction: column;
-    }
+    .tabs { flex-direction: column; }
 
-    .tab-button {
-        margin-bottom: 10px;
+    .tab-button { width: 100%; margin: 0; }
+    
+    .inventory-report th, 
+    .inventory-report td {
+        padding: 8px 4px;
+        font-size: 0.9rem;
     }
+    
+    /* Ajuste para ícones mobile */
+    .inventory-report th img { width: 20px; }
 }
-
