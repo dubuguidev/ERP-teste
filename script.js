@@ -73,18 +73,18 @@ class InventoryManager {
 
         // Objeto do produto
         const product = {
-            id: Date.now(), // ID único baseado no tempo
-            internalCode: this.generateInternalCode(), // Código gerado automaticamente
+            id: Date.now(),
+            internalCode: this.generateInternalCode(),
             name: productName,
             category: category,
             quantity: quantity,
             purchaseValue: purchaseValue,
             saleValue: saleValue,
-            profit: this.calculateProfit(purchaseValue, saleValue), // Lucro do produto
-            validityDate: validityDate || null, // Data de validade (opcional)
+            profit: this.calculateProfit(purchaseValue, saleValue),
             description: description,
-            createdAt: new Date().toISOString() // Data de criação
-        };
+            createdAt: new Date().toISOString() // ✅ DATA DE ADIÇÃO
+};
+
 
         this.products.push(product); // Adiciona o produto ao array
         this.saveToStorage(); // Salva no localStorage
@@ -150,9 +150,7 @@ class InventoryManager {
             const row = document.createElement('tr'); // Nova linha na tabela
 
             // Formata data de validade
-            const validityFormatted = product.validityDate 
-                ? new Date(product.validityDate).toLocaleDateString('pt-BR')
-                : 'Não informado';
+            const validityFormatted = new Date(product.createdAt).toLocaleDateString('pt-BR');
 
             // Faz o cálculo com base na quantidade
             const purchsaeValue = product.purchaseValue * product.quantity;
